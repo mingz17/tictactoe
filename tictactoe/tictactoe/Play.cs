@@ -11,58 +11,71 @@ namespace tictactoe
         View view = new View();
         Player player = new Player();
         Com com = new Com();
-        /*
-        public void start()
-        {
-            
-            View view = new View();
-            view.menu();
-            Console.Clear();
-            
-            menu();
 
-        }
-        */
         public void com_mode()
         {
+            int flag = 0;
             com.mode();
             com.select();
-            while (true)
+            while (flag != 1 || flag != -1)
             {
                 com.play();
-                com.winner();
-                draw();
+                flag = com.winner();
                 com.com_play();
-                com.winner();
-                if (com.flag == true)
-                    break;
+                flag = com.winner();
+
             }
-            Console.Write(""); //메뉴로 돌아가시겠?
+
+            if (flag == 1)  //while 문에
+            {
+                com.print_win();
+            }
+            else
+                Console.WriteLine("\tDraw !");
+            Console.Write("\tIf you want to go back MENU, please enter 'm'key");
         }
 
         public void player_mode()
         {
+            int flag = 0;
             player.mode();
             player.select();
-            while (true)
+            while (flag != 1 || flag != -1)
             {
-                player.play1();
-                player.winner();
-                player.play2();
-                player.winner();
-                if (player.flag == true)
-                    break;
+                if (player.num == 1) {
+                    player.play1();
+                    flag = player.winner();
+                    player.play2();
+                    flag = player.winner();
+                }
+                else
+                {
+                    player.play2();
+                    flag = player.winner();
+                    player.play1();
+                    flag = player.winner();
+                }
             }
+
+            if (flag == 1)
+            {
+                com.print_win();
+            }
+            else
+                Console.WriteLine("\tDraw !");
+            Console.Write("\tIf you want to go back MENU, please enter 'm'key");
         }
+
         public void menu()
         {
-            Console.WriteLine("Tic Tac Toe");
-            Console.WriteLine("1) vs Com");
-            Console.WriteLine("2) vs Player");
-            Console.WriteLine("3) View Score");
-            Console.WriteLine("4) Exit");
+            Console.WriteLine("\n\n\t\t\t『 Tic Tac Toe 』");
+            Console.WriteLine("\n\t\t1) vs Com");
+            Console.WriteLine("\n\t\t2) vs Player");
+            Console.WriteLine("\n\t\t3) View Score");
+            Console.WriteLine("\n\t\t4) Exit");
+            //Console.WriteLine("\t   --------------------------------------------");
             Input:
-            Console.Write("Please enter menu number >> ");
+            Console.Write("\n\t Please enter menu number >> ");
 
             int select_mode;
             select_mode = int.Parse(Console.ReadLine());
@@ -72,26 +85,11 @@ namespace tictactoe
                 case 2: player_mode(); break;
                 case 3: Console.Clear(); player.viewScore(); com.viewScore(); break;
                 case 4: return;
-                default: Console.WriteLine("Select again.."); goto Input; 
+                default: Console.WriteLine("Select again.."); goto Input;
             }
         }
 
-        public void draw()
-        {
-            int cnt = 0;
-            for (int i = 0; i < 9; i++)
-            {
-                if (com.arr[i].Equals("○") || com.arr[i].Equals("Ｘ"))
-                {
-                    cnt++;
-                }
-            }
-            if (cnt == 9)
-            {
-                Console.WriteLine("Draw !");
-              //  goto Out;
-            }
-        }
+       
         /*
         public void mode()
         {

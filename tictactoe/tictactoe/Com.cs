@@ -26,20 +26,20 @@ namespace tictactoe
         public void play()
         {
             Console.Clear();
-            grid();
+            board();
             int choice;
-            Console.WriteLine("< Player's turn >");
+            Console.WriteLine("\t《 Player's turn 》");
             Place:
-            Console.Write("Please select the number to place>> ");
+            Console.Write("\n\tPlease select the number to place>> ");
             choice = int.Parse(Console.ReadLine());
             if (choice < 1 || choice > 9)
             {
-                Console.WriteLine("Select again..");
+                Console.WriteLine("\tSelect again..");
                 goto Place;
             }
             if (arr[choice-1].Equals("○") || arr[choice-1].Equals("Ｘ"))
             {
-                Console.WriteLine("Already selected..Select again");
+                Console.WriteLine("\tAlready marked..Select again");
                 goto Place;
             }
 
@@ -49,9 +49,9 @@ namespace tictactoe
         public void com_play()
         {
             Console.Clear();
-            grid();
+            board();
             int com_choice;
-            Console.WriteLine("< Computer's turn >");
+            Console.WriteLine("\t《 Computer's turn 》");
             Random:
             com_choice = rnd.Next(0, 9);
             if (arr[com_choice].Equals("○") || arr[com_choice].Equals("Ｘ"))
@@ -61,16 +61,16 @@ namespace tictactoe
             
         }
 
-        public override void print_win(int i)
+        public void print_win()
         {
-            if (arr[i].Equals(pnum))
+            if (arr[win].Equals(pnum))
             {
-                Console.WriteLine("Player is Win");
+                Console.WriteLine("\tPlayer Win");
                 p_score++;
             }
             else
             {
-                Console.WriteLine("Computer is Win");
+                Console.WriteLine("\tComputer  Win");
                 com_score++;
             }
         }
