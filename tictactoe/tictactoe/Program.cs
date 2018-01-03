@@ -10,6 +10,8 @@ namespace tictactoe
     {
         static void Main(string[] args)
         {
+            Play play = new Play();
+            play.menu();
         }
     }
 }
