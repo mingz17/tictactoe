@@ -20,7 +20,7 @@ namespace tictactoe
             Console.WriteLine("\n\n\n\n\n\t\t【 player 1 : ○ 】");
             Console.WriteLine("\n\t\t【 player 2 : Ｘ 】");
             Player:
-            Console.Write("\n\tPlease select player number >> ");
+            Console.Write("\n\n\tPlease select player number >> ");
             num = int.Parse(Console.ReadLine());
             if (num != 1 && num != 2)
             {
@@ -106,6 +106,7 @@ namespace tictactoe
             }
             else return 0;
         }
+
         List<String> score = new List<String>();
         public void computeScore()
         {
@@ -116,7 +117,7 @@ namespace tictactoe
                 score.Add("Draw");
             }
 
-            if (arr[win].Equals(pnum1)|| arr[win].Equals(pnum))
+            else if (arr[win].Equals(pnum1)|| arr[win].Equals(pnum))
             {
                 score.Add("Win");
                 score.Add("Lose");
@@ -131,25 +132,41 @@ namespace tictactoe
         
         public void viewScore()
         {
-            
-            
-            ArrayList round = new ArrayList(score);
-
+            /*
             Console.WriteLine("\t\t\t       Player1 vs Player2");
             Console.WriteLine();
             Console.WriteLine("\t\t\t Player 1               Player 2            ");
             Console.WriteLine("\t\t=================================================");
-
-            foreach (object item in round)
+            */
+            int chk = 0;
+            foreach (object item in score)
             {
-                if (round.Contains(item))
+                if (chk % 2 == 0&&chk!=0)
+                    Console.Write("\n\n");
+                if (score.Contains(item))
                 {
-                    Console.Write("{0}  ",item);
+                    Console.Write("\t\t\t  {0}",item);
+                    chk++;
                 }
                 else
                     Console.WriteLine("value does not exist.."); 
             }
-
+            
+            /*
+            for (int i=0;i<score.Count;i++)
+            {
+                for (int j = 0; j < 2; j++)
+                {
+                    if (round.Contains(score))
+                    {
+                        Console.Write("{0}  ", score[i];
+                    }
+                    else
+                        Console.WriteLine("value does not exist..");
+                }
+                Console.Write("\n");
+            }
+            */
             //총점 출력
         }
 

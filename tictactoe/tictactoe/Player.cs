@@ -71,6 +71,15 @@ namespace tictactoe
                 p2_score++;
             }
         }
+
+        public void player_viewScore()
+        {
+            Console.WriteLine("\t\t\t     《 Player1 vs Player2 》");
+            Console.WriteLine();
+            Console.WriteLine("\t\t\t Player 1               Player 2            ");
+            Console.WriteLine("\t\t==================================================");
+            viewScore();
+        }
     }
 }
 

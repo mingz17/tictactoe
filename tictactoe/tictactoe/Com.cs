@@ -75,6 +75,13 @@ namespace tictactoe
             }
         }
 
-
+        public void com_viewScore()
+        {
+            Console.WriteLine("\n\t\t\t     《 Player vs Computer 》");
+            Console.WriteLine();
+            Console.WriteLine("\t\t\t Player                 Computer            ");
+            Console.WriteLine("\t\t==================================================");
+            viewScore();
+        }
     }
 }

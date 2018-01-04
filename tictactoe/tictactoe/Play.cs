@@ -47,8 +47,8 @@ namespace tictactoe
             String input = Console.ReadLine();
             if (input == "m" || input == "M")
             {
-                menu();
                 com.reset();
+                menu();
             }
             else return;
         }
@@ -71,6 +71,11 @@ namespace tictactoe
                     }
                     player.play2();
                     flag = player.winner();
+                    if (flag == 1 || flag == -1)
+                    {
+                        player.board();
+                        break;
+                    }
                 }
                 else
                 {
@@ -83,6 +88,11 @@ namespace tictactoe
                     }
                     player.play1();
                     flag = player.winner();
+                    if(flag == 1 || flag == -1)
+                    {
+                        player.board();
+                        break;
+                    }
                 }
             }
 
@@ -98,8 +108,8 @@ namespace tictactoe
             String input = Console.ReadLine();
             if (input == "m" || input == "M")
             {
+                player.reset();
                 menu();
-                reset();
             }
             else return;
         }
@@ -107,7 +117,9 @@ namespace tictactoe
         public void menu()
         {
             Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("\n\n\t\t\t『 Tic Tac Toe 』");
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("\n\t\t1) vs Com");
             Console.WriteLine("\n\t\t2) vs Player");
             Console.WriteLine("\n\t\t3) View Score");
@@ -123,7 +135,8 @@ namespace tictactoe
                 case 1: com_mode(); break;
                 case 2: player_mode(); break;
                 case 3: {
-                        Console.Clear(); player.viewScore(); com.viewScore();
+                        Console.Clear(); com.com_viewScore();
+                        Console.Write("\n\n\n\n"); player.player_viewScore();
                         Console.Write("\n\n\n\tIf you want to go back MENU, please enter【 M 】key... ");
                         String input = Console.ReadLine();
                         if (input == "m" || input == "M")
@@ -132,11 +145,11 @@ namespace tictactoe
                         break;
                     }
                 case 4: return;
-                default: Console.WriteLine("Select again.."); goto Input;
+                default: Console.WriteLine("\tSelect again.."); goto Input;
             }
         }
 
-        
+        /*
         public void reset()
         {
             player.pnum1 = null; player.pnum2 = null;
@@ -145,42 +158,6 @@ namespace tictactoe
             player.arr[4] = "⑸"; player.arr[5] = "⑹";
             player.arr[6] = "⑺"; player.arr[7] = "⑻";
             player.arr[8] = "⑼";
-        }
-        
-
-
-        /*
-        public void mode()
-        {
-            Console.Clear();
-            int num;
-            Console.WriteLine("player 1 : ○");
-            Console.WriteLine("player 2 : Ｘ");
-            Player:
-            Console.Write("Please select player number >> ");
-            num = int.Parse(Console.ReadLine());
-            if (num != 1 && num != 2)
-            {
-                Console.WriteLine("Select again..");
-                goto Player;
-            }
-            if (num == 1)
-            {
-                player.pnum1 = "○";
-                player.pnum2 = "Ｘ";
-                com.pnum = "○";
-                com.cnum = "Ｘ";
-                play1();
-            }
-            else
-            {
-                player.pnum1 = "Ｘ";
-                player.pnum2 = "○";
-                com.pnum = "Ｘ";
-                com.cnum = "○";
-                
-            }
-           
         }
         */
     }

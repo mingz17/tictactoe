@@ -10,6 +10,7 @@ namespace tictactoe
     {
         static void Main(string[] args)
         {
+            //Console.SetWindowSize(50, 50);
             Play play = new Play();
             play.menu();
         }
