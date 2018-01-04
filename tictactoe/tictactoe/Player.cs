@@ -16,12 +16,12 @@ namespace tictactoe
         
         public void play1()
         {
-            Console.Clear();
+            //Console.Clear();
             board();
             int choice;
             Console.WriteLine("\t《 Player 1's turn 》");
             Place:
-            Console.Write("\n\tPlease select the number to place>> ");
+            Console.Write("\n\tPlease select the number to place >> ");
             choice = int.Parse(Console.ReadLine());
             if (choice < 1 || choice > 9)
             {
@@ -38,12 +38,12 @@ namespace tictactoe
 
         public void play2()
         {
-            Console.Clear();
+            //Console.Clear();
             board();
             int choice;
             Console.WriteLine("\t《 Player 2's turn 》");
             Place:
-            Console.Write("\n\tPlease select the number to place>> ");
+            Console.Write("\n\tPlease select the number to place >> ");
             choice = int.Parse(Console.ReadLine());
             if (choice < 1 || choice > 9)
             {

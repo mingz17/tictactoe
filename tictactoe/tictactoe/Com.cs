@@ -25,12 +25,12 @@ namespace tictactoe
         Random rnd = new Random();
         public void play()
         {
-            Console.Clear();
+            //Console.Clear();
             board();
             int choice;
             Console.WriteLine("\t《 Player's turn 》");
             Place:
-            Console.Write("\n\tPlease select the number to place>> ");
+            Console.Write("\n\tPlease select the number to place >> ");
             choice = int.Parse(Console.ReadLine());
             if (choice < 1 || choice > 9)
             {
@@ -48,7 +48,7 @@ namespace tictactoe
         }
         public void com_play()
         {
-            Console.Clear();
+            //Console.Clear();
             board();
             int com_choice;
             Console.WriteLine("\t《 Computer's turn 》");

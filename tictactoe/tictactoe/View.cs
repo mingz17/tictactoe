@@ -44,6 +44,7 @@ namespace tictactoe
         }
         public void board()
         {
+            Console.Clear();
             Console.WriteLine("\n\n\t\t        │        │");
             Console.WriteLine("\t\t   {0}   │   {1}   │   {2}", arr[0], arr[1], arr[2]);
             Console.WriteLine("\t\t ───────│────────│───────");
@@ -99,32 +100,38 @@ namespace tictactoe
                 win = 4;
                 return 1;
             }
-            else if (arr[0] != null && arr[1] != null && arr[2] != null && arr[3] != null && arr[4] != null && arr[5] != null && arr[6] != null && arr[7] != null && arr[8] != null)
+            else if (arr[0] != "⑴" && arr[1] != "⑵" && arr[2] != "⑶" && arr[3] != "⑷" && arr[4] != "⑸" && arr[5] != "⑹" && arr[6] != "⑺" && arr[7] != "⑻" && arr[8] != "⑼")
             {
                 return -1;
             }
             else return 0;
         }
-       
+        List<String> score = new List<String>();
         public void computeScore()
         {
+            int flag = winner();
+            if (flag == -1)
+            {
+                score.Add("Draw");
+                score.Add("Draw");
+            }
 
+            if (arr[win].Equals(pnum1)|| arr[win].Equals(pnum))
+            {
+                score.Add("Win");
+                score.Add("Lose");
+
+            }
+            else if (arr[win].Equals(pnum2)||arr[win].Equals(cnum))
+            {
+                score.Add("Lose");
+                score.Add("Win");
+            }
         }
         
         public void viewScore()
         {
-            List<String> score = new List<String>();
-            if (arr[win].Equals(pnum1))
-            {
-                score.Add("Win");
-                score.Add("Lose");
-
-            }
-            else if(arr[win].Equals(pnum2))
-            {
-                score.Add("Lose");
-                score.Add("Win");
-            }
+            
             
             ArrayList round = new ArrayList(score);
 
@@ -142,6 +149,19 @@ namespace tictactoe
                 else
                     Console.WriteLine("value does not exist.."); 
             }
+
+            //총점 출력
+        }
+
+        public void reset()
+        {
+            pnum1 = null; pnum2 = null;
+            pnum = null; cnum = null;
+            arr[0] = "⑴"; arr[1] = "⑵";
+            arr[2] = "⑶"; arr[3] = "⑷";
+            arr[4] = "⑸"; arr[5] = "⑹";
+            arr[6] = "⑺"; arr[7] = "⑻";
+            arr[8] = "⑼";
         }
     }
 }
