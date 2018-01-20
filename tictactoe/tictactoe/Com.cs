@@ -25,7 +25,6 @@ namespace tictactoe
         Random rnd = new Random();
         public void play()
         {
-            //Console.Clear();
             board();
             int choice;
             Console.WriteLine("\t《 Player's turn 》");
@@ -48,7 +47,6 @@ namespace tictactoe
         }
         public void com_play()
         {
-            //Console.Clear();
             board();
             int com_choice;
             Console.WriteLine("\t《 Computer's turn 》");

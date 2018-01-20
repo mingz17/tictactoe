@@ -8,7 +8,6 @@ namespace tictactoe
 {
     class Play
     {
-        View view = new View();
         Player player = new Player();
         Com com = new Com();
 
@@ -148,17 +147,6 @@ namespace tictactoe
                 default: Console.WriteLine("\tSelect again.."); goto Input;
             }
         }
-
-        /*
-        public void reset()
-        {
-            player.pnum1 = null; player.pnum2 = null;
-            player.arr[0] = "⑴"; player.arr[1] = "⑵";
-            player.arr[2] = "⑶"; player.arr[3] = "⑷";
-            player.arr[4] = "⑸"; player.arr[5] = "⑹";
-            player.arr[6] = "⑺"; player.arr[7] = "⑻";
-            player.arr[8] = "⑼";
-        }
-        */
+        
     }
 }

@@ -27,21 +27,8 @@ namespace tictactoe
                 Console.WriteLine("\tSelect again..");
                 goto Player;
             }
-            /*
-            if (num == 1)
-            {                
-                Com com = new Com();
-                com.select();
-            }
-            else
-            {
-                {
-                    Player player = new Player();
-                    player.select();
-                }
-            }
-            */
         }
+
         public void board()
         {
             Console.Clear();
@@ -53,11 +40,10 @@ namespace tictactoe
             Console.WriteLine("\t\t   {0}   │   {1}   │   {2}", arr[6], arr[7], arr[8]);
             Console.WriteLine("\t\t        │        │");
             Console.WriteLine("\n\n");
-            
         }
 
         public int p1_score = 0, p2_score = 0, p_score=0, com_score = 0;
-        public int win;
+        public int win; //이긴사람
         public int winner()
         {
             if (arr[0].Equals(arr[1]) && arr[1].Equals(arr[2])) //가로
@@ -152,22 +138,6 @@ namespace tictactoe
                     Console.WriteLine("value does not exist.."); 
             }
             
-            /*
-            for (int i=0;i<score.Count;i++)
-            {
-                for (int j = 0; j < 2; j++)
-                {
-                    if (round.Contains(score))
-                    {
-                        Console.Write("{0}  ", score[i];
-                    }
-                    else
-                        Console.WriteLine("value does not exist..");
-                }
-                Console.Write("\n");
-            }
-            */
-            //총점 출력
         }
 
         public void reset()

@@ -16,7 +16,6 @@ namespace tictactoe
         
         public void play1()
         {
-            //Console.Clear();
             board();
             int choice;
             Console.WriteLine("\t《 Player 1's turn 》");
@@ -38,7 +37,6 @@ namespace tictactoe
 
         public void play2()
         {
-            //Console.Clear();
             board();
             int choice;
             Console.WriteLine("\t《 Player 2's turn 》");
